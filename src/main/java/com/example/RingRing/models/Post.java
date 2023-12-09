@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int Post_Id;
     @Column
     private String title;
     @Column(columnDefinition = "TEXT")
@@ -21,12 +21,12 @@ public class Post {
     @JoinColumn(name = "user_id", referencedColumnName = "Id")
     private User user;
 
-    public int getId() {
-        return id;
+    public int getPost_Id() {
+        return Post_Id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setPost_Id(int post_Id) {
+        this.Post_Id = post_Id;
     }
 
     public String getTitle() {

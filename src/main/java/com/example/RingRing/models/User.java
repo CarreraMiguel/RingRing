@@ -9,7 +9,7 @@ import java.util.List;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int Id;
+    private int User_Id;
     @Column
     private String name;
     @Column
@@ -19,12 +19,12 @@ public class User {
     private List<Post> posts;
 
 
-    public int getId() {
-        return Id;
+    public int getUser_Id() {
+        return User_Id;
     }
 
-    public void setId(int id) {
-        this.Id = id;
+    public void setUser_Id(int user_Id) {
+        this.User_Id = user_Id;
     }
 
     public String getName() {
