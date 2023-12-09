@@ -12,8 +12,5 @@ public class RingRingApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(RingRingApplication.class, args);
 	}
-	@GetMapping
-	public String demo(){
-		return "Hola muchachos";
-	}
+
 }
