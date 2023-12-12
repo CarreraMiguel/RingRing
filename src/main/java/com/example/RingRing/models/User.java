@@ -9,22 +9,20 @@ import java.util.List;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int User_Id;
+    private int id;
     @Column
     private String name;
     @Column
     private String surname;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "User", cascade = CascadeType.ALL)
     private List<Post> posts;
 
-
-    public int getUser_Id() {
-        return User_Id;
+    public int getId() {
+        return id;
     }
-
-    public void setUser_Id(int user_Id) {
-        this.User_Id = user_Id;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
