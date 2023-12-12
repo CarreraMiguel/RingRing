@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int Id;
+    private int id;
     @Column
     private String title;
     @Column(columnDefinition = "TEXT")
@@ -15,15 +15,15 @@ public class Post {
     @Column
     private LocalDateTime createdDate;
     @ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "Id")
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
 
     public int getId() {
-        return Id;
+        return id;
     }
 
     public void setId(int id) {
-        this.Id = id;
+        this.id = id;
     }
 
     public String getTitle() {
