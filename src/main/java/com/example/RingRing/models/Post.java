@@ -13,7 +13,7 @@ public class Post {
     private String title;
     @Column(columnDefinition = "TEXT")
     private String body;
-    @Column
+    @Column ( name = "created_date")
     private LocalDateTime createdDate;
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")
