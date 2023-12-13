@@ -3,7 +3,8 @@ package com.example.RingRing.models;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
-
+@Entity
+@Table (name = "POSTS")
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
