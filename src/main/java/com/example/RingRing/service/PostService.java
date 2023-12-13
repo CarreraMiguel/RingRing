@@ -28,4 +28,23 @@ public class PostService implements iPostService {
         Post finalPost = this.postDao.getReferenceById(post.getId());
         return PostMapper.INSTANCE.toDTO(finalPost);
     }
+
+    @Override
+    public int insertPost(PostDto postDto){
+        Post post = PostMapper.INSTANCE.toEntity(postDto);
+        this.postDao.saveAndFlush(post);
+        return post.getId();
+    }
+
+    @Override
+    public int updatePost (PostDto postDto){
+        return this.insertPost(postDto);
+    }
+
+    @Override
+    public int deletePost(PostDto postDto){
+        Post post = PostMapper.INSTANCE.toEntity(postDto);
+        this.postDao.delete(post);
+        return post.getId();
+    }
 }
