@@ -21,8 +21,8 @@ public class UserService implements iUserService {
     @Override
     public UserDto queryUser(UserDto userDto){
         User user = UserMapper.INSTANCE.toEntity(userDto);
-        User userFinal = this.userDao.getReferenceById(user.getId());
-        return UserMapper.INSTANCE.toDTO(userFinal);
+        User finalUser = this.userDao.getReferenceById(user.getId());
+        return UserMapper.INSTANCE.toDTO(finalUser);
     }
 
     @Override
