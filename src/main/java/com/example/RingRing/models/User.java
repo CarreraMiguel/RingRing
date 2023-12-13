@@ -15,7 +15,7 @@ public class User {
     @Column
     private String surname;
 
-    @OneToMany(mappedBy = "User", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Post> posts;
 
     public int getId() {
