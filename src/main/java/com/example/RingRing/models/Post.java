@@ -20,8 +20,8 @@ public class Post {
     private User user;
 
     @ManyToOne
-    @JoinColumn(name = "comentaries_id", referencedColumnName = "id")
-    private Comentaries comentaries;
+    @JoinColumn(name = "commentary_id", referencedColumnName = "id")
+    private Commentary commentary;
 
     public int getId() {
         return id;

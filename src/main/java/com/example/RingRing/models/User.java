@@ -19,7 +19,7 @@ public class User {
     private List<Post> posts;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<Comentaries> comentaries;
+    private List<Commentary> commentary;
 
     public int getId() {
         return id;
