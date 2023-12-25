@@ -23,6 +23,14 @@ public class Post {
     @JoinColumn(name = "commentary_id", referencedColumnName = "id")
     private Commentary commentary;
 
+    public Commentary getCommentary() {
+        return commentary;
+    }
+
+    public void setCommentary(Commentary commentary) {
+        this.commentary = commentary;
+    }
+
     public int getId() {
         return id;
     }
