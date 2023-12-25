@@ -13,7 +13,7 @@ public class UserController {
     @Autowired
     iUserService userService;
 
-    @GetMapping
+    @GetMapping (value = "/testUserController")
     public String testController(){
         return ("test controller for Users works!");
     }
