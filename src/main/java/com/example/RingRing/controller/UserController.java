@@ -14,8 +14,8 @@ public class UserController {
     iUserService userService;
 
     @GetMapping
-    public String testController(@RequestBody String name){
-        return ("test controller for Users works!" + name);
+    public String testController(){
+        return ("test controller for Users works!");
     }
 
     @GetMapping (value = "/getAll")
