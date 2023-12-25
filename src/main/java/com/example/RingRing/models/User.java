@@ -21,6 +21,14 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Commentary> commentary;
 
+    public List<Commentary> getCommentary() {
+        return commentary;
+    }
+
+    public void setCommentary(List<Commentary> commentary) {
+        this.commentary = commentary;
+    }
+
     public int getId() {
         return id;
     }
