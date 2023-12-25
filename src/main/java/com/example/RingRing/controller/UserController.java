@@ -1,11 +1,11 @@
 package com.example.RingRing.controller;
 
 import com.example.RingRing.api.iUserService;
+import com.example.RingRing.models.dto.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/users")
@@ -17,4 +17,30 @@ public class UserController {
     public String testController(@RequestBody String name){
         return ("test controller for Users works!" + name);
     }
+
+    @GetMapping (value = "/getAll")
+        public List<UserDto> queryAllUsers(){
+        return this.userService.queryAllUsers();
+    }
+
+    @PostMapping(value = "/get")
+        public UserDto queryUser(@RequestBody UserDto user){
+        return this.userService.queryUser(user);
+    }
+
+    @PostMapping (value = "/add")
+        public int insertUser(@RequestBody UserDto user){
+        return this.userService.insertUser(user);
+    }
+
+    @PutMapping (value = "/update")
+        public int updateUser(@RequestBody UserDto user){
+        return this.userService.updateUser(user);
+    }
+
+    @DeleteMapping (value = "/delete")
+    public int deleteUser (@RequestBody UserDto user){
+        return this.userService.deleteUser(user);
+    }
+
 }

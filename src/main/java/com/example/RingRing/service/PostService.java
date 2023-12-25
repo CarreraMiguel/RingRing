@@ -47,4 +47,5 @@ public class PostService implements iPostService {
         this.postDao.delete(post);
         return post.getId();
     }
+
 }
