@@ -19,6 +19,10 @@ public class Post {
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
 
+    @ManyToOne
+    @JoinColumn(name = "comentaries_id", referencedColumnName = "id")
+    private Comentaries comentaries;
+
     public int getId() {
         return id;
     }
