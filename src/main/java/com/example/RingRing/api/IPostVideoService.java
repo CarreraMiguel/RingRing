@@ -4,7 +4,7 @@ import com.example.RingRing.models.dto.PostVideoDto;
 
 import java.util.List;
 
-public interface iPostVideoService {
+public interface IPostVideoService {
     List<PostVideoDto> queryAllPostVideos ();
     PostVideoDto queryPostVideo(PostVideoDto postVideoDto);
     int insertPostVideo (PostVideoDto postVideoDto);

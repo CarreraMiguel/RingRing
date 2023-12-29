@@ -1,6 +1,6 @@
 package com.example.RingRing.service;
 
-import com.example.RingRing.api.iPostImageService;
+import com.example.RingRing.api.IPostImageService;
 import com.example.RingRing.models.PostImage;
 import com.example.RingRing.models.dao.PostImageDao;
 import com.example.RingRing.models.dto.PostImageDto;
@@ -13,7 +13,7 @@ import java.util.List;
 
 @Service("PostImageService")
 @Lazy
-public class PostImageService implements iPostImageService {
+public class PostImageService implements IPostImageService {
 
     @Autowired
     private PostImageDao postImageDao;

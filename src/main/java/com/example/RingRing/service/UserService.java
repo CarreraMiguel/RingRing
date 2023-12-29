@@ -1,11 +1,10 @@
 package com.example.RingRing.service;
 
-import com.example.RingRing.api.iUserService;
+import com.example.RingRing.api.IUserService;
 import com.example.RingRing.models.User;
 import com.example.RingRing.models.dao.UserDao;
 import com.example.RingRing.models.dto.UserDto;
 import com.example.RingRing.models.dto.mappers.UserMapper;
-import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
@@ -14,7 +13,7 @@ import java.util.List;
 
 @Service ("UserService")
 @Lazy
-public class UserService implements iUserService {
+public class UserService implements IUserService {
     @Autowired
      private UserDao userDao;
 

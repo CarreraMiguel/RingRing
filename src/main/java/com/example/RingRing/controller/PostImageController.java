@@ -1,6 +1,6 @@
 package com.example.RingRing.controller;
 
-import com.example.RingRing.api.iPostImageService;
+import com.example.RingRing.api.IPostImageService;
 import com.example.RingRing.models.dto.PostImageDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -11,7 +11,7 @@ import java.util.List;
 @RequestMapping (name = "/postImage")
 public class PostImageController {
     @Autowired
-    iPostImageService postImageService;
+    IPostImageService postImageService;
 
     @GetMapping(value = "/testPostImageController")
     public String test(){

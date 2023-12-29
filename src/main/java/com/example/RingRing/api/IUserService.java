@@ -4,7 +4,7 @@ import com.example.RingRing.models.dto.UserDto;
 
 import java.util.List;
 
-public interface iUserService {
+public interface IUserService {
     List<UserDto> queryAllUsers();
     UserDto queryUser(UserDto userDto);
     int insertUser (UserDto userDto);

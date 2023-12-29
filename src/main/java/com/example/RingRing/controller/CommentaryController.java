@@ -1,6 +1,6 @@
 package com.example.RingRing.controller;
 
-import com.example.RingRing.api.iCommentaryService;
+import com.example.RingRing.api.ICommentaryService;
 import com.example.RingRing.models.dto.CommentaryDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -11,7 +11,7 @@ import java.util.List;
 @RequestMapping("/commentary")
 public class CommentaryController {
     @Autowired
-    iCommentaryService commentaryService;
+    ICommentaryService commentaryService;
 
     @GetMapping( value = "/testCommentaryController")
     public String test(){

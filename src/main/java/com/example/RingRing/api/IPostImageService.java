@@ -4,7 +4,7 @@ import com.example.RingRing.models.dto.PostImageDto;
 
 import java.util.List;
 
-public interface iPostImageService {
+public interface IPostImageService {
     List<PostImageDto> queryAllPostImages ();
     PostImageDto queryPostImage(PostImageDto postImageDto);
     int insertPostImage (PostImageDto postImageDto);

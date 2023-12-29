@@ -1,6 +1,6 @@
 package com.example.RingRing.controller;
 
-import com.example.RingRing.api.iUserService;
+import com.example.RingRing.api.IUserService;
 import com.example.RingRing.models.dto.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -11,7 +11,7 @@ import java.util.List;
 @RequestMapping("/users")
 public class UserController {
     @Autowired
-    iUserService userService;
+    IUserService userService;
 
     @GetMapping (value = "/testUserController")
     public String testController(){

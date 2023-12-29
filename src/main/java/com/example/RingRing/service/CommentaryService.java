@@ -1,6 +1,6 @@
 package com.example.RingRing.service;
 
-import com.example.RingRing.api.iCommentaryService;
+import com.example.RingRing.api.ICommentaryService;
 import com.example.RingRing.models.Commentary;
 import com.example.RingRing.models.dao.CommentaryDao;
 import com.example.RingRing.models.dto.CommentaryDto;
@@ -13,7 +13,7 @@ import java.util.List;
 
 @Service("CommentaryService")
 @Lazy
-public class CommentaryService implements iCommentaryService {
+public class CommentaryService implements ICommentaryService {
     @Autowired
     private CommentaryDao commentaryDao;
 

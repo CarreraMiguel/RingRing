@@ -1,6 +1,6 @@
 package com.example.RingRing.service;
 
-import com.example.RingRing.api.iPostVideoService;
+import com.example.RingRing.api.IPostVideoService;
 import com.example.RingRing.models.PostVideo;
 import com.example.RingRing.models.dao.PostVideoDao;
 import com.example.RingRing.models.dto.PostVideoDto;
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 @Service("PostVideoService")
 @Lazy
-public class PostVideoService implements iPostVideoService {
+public class PostVideoService implements IPostVideoService {
     @Autowired
     private PostVideoDao postVideoDao;
 
