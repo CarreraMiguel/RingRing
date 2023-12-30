@@ -18,7 +18,6 @@ public class Post {
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
-
     @ManyToOne
     @JoinColumn(name = "commentary_id", referencedColumnName = "id")
     private Commentary commentary;
