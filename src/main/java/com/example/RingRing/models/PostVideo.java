@@ -5,7 +5,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "POST_VIDEOS")
 public class PostVideo extends Post{
     @Column
     private int quality;
