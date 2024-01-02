@@ -5,7 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "POST_IMAGE")
+@Table(name = "POST_IMAGES")
 public class PostImage extends Post {
 
     @Column
