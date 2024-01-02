@@ -5,6 +5,7 @@ public class PostDto {
     private String title;
     private String body;
     private UserDto user;
+    private CommentaryDto commentary;
 
     public int getId() {
         return id;
@@ -36,5 +37,13 @@ public class PostDto {
 
     public void setUser(UserDto user) {
         this.user = user;
+    }
+
+    public CommentaryDto getCommentary() {
+        return commentary;
+    }
+
+    public void setCommentary(CommentaryDto commentary) {
+        this.commentary = commentary;
     }
 }
