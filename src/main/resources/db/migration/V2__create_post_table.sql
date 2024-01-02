@@ -5,5 +5,5 @@ CREATE TABLE IF NOT EXISTS POSTS
     body VARCHAR(2500),
     created_date TIMESTAMP,
     user_id INTEGER,
-    FOREIGN KEY (user_id) REFERENCES USERS(id),
+    FOREIGN KEY (user_id) REFERENCES USERS(id)
 );
