@@ -1,0 +1,10 @@
+UPDATE POSTS SET user_id = 47 WHERE id = 1;
+UPDATE POSTS SET user_id = 26 WHERE id = 2;
+UPDATE POSTS SET user_id = 16 WHERE id = 3;
+UPDATE POSTS SET user_id = 39 WHERE id = 4;
+UPDATE POSTS SET user_id = 29 WHERE id = 5;
+UPDATE POSTS SET user_id = 14 WHERE id = 6;
+UPDATE POSTS SET user_id = 20 WHERE id = 7;
+UPDATE POSTS SET user_id = 2 WHERE id = 8;
+UPDATE POSTS SET user_id = 14 WHERE id = 9;
+UPDATE POSTS SET user_id = 11 WHERE id = 10;
