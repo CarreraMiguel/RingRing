@@ -1,0 +1,10 @@
+UPDATE POSTS SET created_date = '2024-01-02' WHERE id = 1;
+UPDATE POSTS SET created_date = '2023-07-06' WHERE id = 2;
+UPDATE POSTS SET created_date = '2023-02-12' WHERE id = 3;
+UPDATE POSTS SET created_date = '2023-05-06' WHERE id = 4;
+UPDATE POSTS SET created_date = '2023-01-25' WHERE id = 5;
+UPDATE POSTS SET created_date = '2023-08-24' WHERE id = 6;
+UPDATE POSTS SET created_date = '2024-01-01' WHERE id = 7;
+UPDATE POSTS SET created_date = '2023-06-19' WHERE id = 8;
+UPDATE POSTS SET created_date = '2023-09-05' WHERE id = 9;
+UPDATE POSTS SET created_date = '2023-11-11' WHERE id = 10;
