@@ -2,6 +2,7 @@ package com.example.RingRing.models;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -14,13 +15,14 @@ public class User {
     private String name;
     @Column
     private String surname;
+    private List<User> friendList = new ArrayList<>();
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Post> posts;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Commentary> commentary;
-
+    @OneToMany
     public List<Commentary> getCommentary() {
         return commentary;
     }
@@ -58,5 +60,11 @@ public class User {
 
     public void setPosts(List<Post> posts) {
         this.posts = posts;
+    }
+    public List<User> getFriendList() {
+        return friendList;
+    }
+    public void setFriendList(List<User> friendList) {
+        this.friendList = friendList;
     }
 }
