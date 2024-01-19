@@ -35,11 +35,11 @@ public class UserService implements IUserService {
         this.userDao.saveAndFlush(user);
         return user.getId();
     }
-
+    @Override
     public int updateUser (UserDto userDto){
         return this.insertUser(userDto);
     }
-
+    @Override
     public int deleteUser(UserDto userDto){
         User user = UserMapper.INSTANCE.toEntity(userDto);
         this.userDao.delete(user);
