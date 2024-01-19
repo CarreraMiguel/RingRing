@@ -15,6 +15,7 @@ public class User {
     private String name;
     @Column
     private String surname;
+
     private List<User> friendList = new ArrayList<>();
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
