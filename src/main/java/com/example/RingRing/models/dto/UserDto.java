@@ -1,5 +1,6 @@
 package com.example.RingRing.models.dto;
 
+import com.example.RingRing.models.Commentary;
 import com.example.RingRing.models.Post;
 import com.example.RingRing.models.User;
 
@@ -15,6 +16,7 @@ public class UserDto {
 
     private List<Post> posts;
     private List<User> friendList = new ArrayList<>();
+    private List<Commentary> commentary;
 
     public int getId() {
         return id;
@@ -54,5 +56,13 @@ public class UserDto {
 
     public void setFriendList(List<User> friendList) {
         this.friendList = friendList;
+    }
+
+    public List<Commentary> getCommentary() {
+        return commentary;
+    }
+
+    public void setCommentary(List<Commentary> commentary) {
+        this.commentary = commentary;
     }
 }
