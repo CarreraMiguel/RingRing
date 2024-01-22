@@ -11,8 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service("PostService")
-@Lazy
+@Service
 public class PostService implements IPostService {
     @Autowired
     private PostDao postDao;

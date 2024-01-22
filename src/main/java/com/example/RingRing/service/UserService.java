@@ -10,9 +10,9 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
-@Service ("UserService")
-@Lazy
+@Service
 public class UserService implements IUserService {
     @Autowired
      private UserDao userDao;
@@ -44,6 +44,18 @@ public class UserService implements IUserService {
         User user = UserMapper.INSTANCE.toEntity(userDto);
         this.userDao.delete(user);
         return user.getId();
+    }
+
+    @Override
+    public int addFriend(UserDto newFriendId){
+        User friend = UserMapper.INSTANCE.toEntity(newFriendId);
+        Optional<User> friendExist = this.userDao.findById(friend.getId());
+        if(friendExist.isPresent() && !friend.getFriendList().contains(friendExist.get())){
+            friend.getFriendList().add(friendExist.get());
+        } else {
+            System.out.println("Ojo");
+        }
+        return friendExist.get().getId();
     }
 
 }

@@ -11,8 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service("CommentaryService")
-@Lazy
+@Service
 public class CommentaryService implements ICommentaryService {
     @Autowired
     private CommentaryDao commentaryDao;

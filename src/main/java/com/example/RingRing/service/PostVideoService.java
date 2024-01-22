@@ -10,8 +10,7 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-@Service("PostVideoService")
-@Lazy
+@Service
 public class PostVideoService implements IPostVideoService {
     @Autowired
     private PostVideoDao postVideoDao;

@@ -11,8 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service("PostImageService")
-@Lazy
+@Service
 public class PostImageService implements IPostImageService {
 
     @Autowired
