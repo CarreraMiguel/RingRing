@@ -8,10 +8,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping (name = "/postImage")
+@RequestMapping ("/postImage")
 public class PostImageController {
-    @Autowired
-    IPostImageService postImageService;
+    private final IPostImageService postImageService;
+    public PostImageController(IPostImageService postImageService) {
+        this.postImageService = postImageService;
+    }
 
     @GetMapping(value = "/testPostImageController")
     public String test(){

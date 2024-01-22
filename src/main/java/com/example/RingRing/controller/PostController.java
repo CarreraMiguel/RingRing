@@ -10,8 +10,12 @@ import java.util.List;
 @RestController
 @RequestMapping("/posts")
 public class PostController {
-    @Autowired
-    IPostService postService;
+
+     private final IPostService postService;
+
+    public PostController(IPostService postService) {
+        this.postService = postService;
+    }
 
     @GetMapping (value = "/testPostController")
     public String test(){

@@ -10,8 +10,12 @@ import java.util.List;
 @RestController
 @RequestMapping("/commentary")
 public class CommentaryController {
-    @Autowired
-    ICommentaryService commentaryService;
+
+    private final ICommentaryService commentaryService;
+
+    public CommentaryController(ICommentaryService commentaryService) {
+        this.commentaryService = commentaryService;
+    }
 
     @GetMapping( value = "/testCommentaryController")
     public String test(){

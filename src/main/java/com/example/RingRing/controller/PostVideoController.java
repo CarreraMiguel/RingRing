@@ -8,10 +8,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(name = "/postVideo")
+@RequestMapping("/postVideo")
 public class PostVideoController {
-    @Autowired
-    IPostVideoService postVideoService;
+
+    private final IPostVideoService postVideoService;
+
+    public PostVideoController(IPostVideoService postVideoService) {
+        this.postVideoService = postVideoService;
+    }
 
     @GetMapping(value = "/testPostVideoController")
     public String test(){

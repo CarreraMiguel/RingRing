@@ -10,8 +10,12 @@ import java.util.List;
 @RestController
 @RequestMapping("/users")
 public class UserController {
-    @Autowired
-    IUserService userService;
+
+    private final IUserService userService;
+
+    public UserController(IUserService userService) {
+        this.userService = userService;
+    }
 
     @GetMapping (value = "/testUserController")
     public String testController(){
