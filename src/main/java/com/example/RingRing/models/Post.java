@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 @Entity
 @Table (name = "POSTS")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
