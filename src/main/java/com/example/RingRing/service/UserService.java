@@ -52,10 +52,11 @@ public class UserService implements IUserService {
         Optional<User> friendExist = this.userDao.findById(friend.getId());
         if(friendExist.isPresent() && !friend.getFriendList().contains(friendExist.get())){
             friend.getFriendList().add(friendExist.get());
+            return friendExist.get().getId();
         } else {
-            System.out.println("Ojo");
+            System.out.println("Error: No se pudo agregar al amigo. Asegúrate de que el usuario exista y no esté ya en la lista de amigos.");
         }
-        return friendExist.get().getId();
+        return -1;
     }
 
 }
