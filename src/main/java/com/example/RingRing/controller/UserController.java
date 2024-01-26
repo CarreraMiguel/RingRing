@@ -47,4 +47,6 @@ public class UserController {
         return this.userService.deleteUser(user);
     }
 
+    @PostMapping (value = "/addFriend")
+    public int addUser (@RequestBody UserDto friend){ return this.userService.addFriend(friend);}
 }
