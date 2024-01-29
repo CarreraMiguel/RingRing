@@ -61,8 +61,8 @@ public class UserService implements IUserService {
     public int removeFriend(UserDto removedFriend){
         User friend = UserMapper.INSTANCE.toEntity(removedFriend);
         Optional<User> friendList = this.userDao.findById(friend.getId());
-        if(friendList.isPresent() && friend.getFriendList().equals(friendList.get())){
-            friend.getFriendList().remove(friendList.get());
+        if(friendList.isPresent() && friendList.get().getFriendList().contains(friend)){
+                friendList.get().getFriendList().remove(friend);
             return friendList.get().getId();
         } else {
             throw new RuntimeException("Error: Asegurate de que el id coincida con el de tus amigos");
