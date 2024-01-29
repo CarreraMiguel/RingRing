@@ -49,4 +49,9 @@ public class UserController {
 
     @PostMapping (value = "/addFriend")
     public int addUser (@RequestBody UserDto friend){ return this.userService.addFriend(friend);}
+
+    @DeleteMapping (value = "/deleteFriend")
+    public int removeFriend (@RequestBody UserDto friend){
+        return this.userService.removeFriend(friend);
+    }
 }
