@@ -45,7 +45,6 @@ public class UserService implements IUserService {
         this.userDao.delete(user);
         return user.getId();
     }
-
     @Override
     public int addFriend(UserDto newFriendId){
         User friend = UserMapper.INSTANCE.toEntity(newFriendId);
@@ -54,9 +53,19 @@ public class UserService implements IUserService {
             friend.getFriendList().add(friendExist.get());
             return friendExist.get().getId();
         } else {
-            System.out.println("Error: No se pudo agregar al amigo. Asegúrate de que el usuario exista y no esté ya en la lista de amigos.");
+            throw new RuntimeException("Error: No se pudo agregar al amigo. Asegúrate de que el usuario exista y no esté ya en la lista de amigos.");
         }
-        return -1;
     }
 
+    @Override
+    public int removeFriend(UserDto removedFriend){
+        User friend = UserMapper.INSTANCE.toEntity(removedFriend);
+        Optional<User> friendList = this.userDao.findById(friend.getId());
+        if(friendList.isPresent() && friend.getFriendList().equals(friendList.get())){
+            friend.getFriendList().remove(friendList.get());
+            return friendList.get().getId();
+        } else {
+            throw new RuntimeException("Error: Asegurate de que el id coincida con el de tus amigos");
+        }
+    }
 }
