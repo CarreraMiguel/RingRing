@@ -6,7 +6,6 @@ import com.example.RingRing.models.dao.UserDao;
 import com.example.RingRing.models.dto.UserDto;
 import com.example.RingRing.models.dto.mappers.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -68,4 +67,16 @@ public class UserService implements IUserService {
             throw new RuntimeException("Error: Asegurate de que el id coincida con el de tus amigos");
         }
     }
+
+    @Override
+    public List<UserDto> listFriends(UserDto userDto) {
+        User user = UserMapper.INSTANCE.toEntity(userDto);
+
+        for (int i = 0; i < user.getFriendList().size(); i++) {
+            User friend = user.getFriendList().get(i);
+            System.out.println((i + 1) + "Nombre del amigo: " + friend.getName() + "id: " + friend.getId());
+        }
+        return null;
+    }
+
 }
