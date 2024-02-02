@@ -18,7 +18,7 @@ public class UserController {
     }
 
     @GetMapping (value = "/testUserController")
-    public String testController(){
+        public String testController(){
         return ("test controller for Users works!");
     }
 
@@ -43,15 +43,20 @@ public class UserController {
     }
 
     @DeleteMapping (value = "/delete")
-    public int deleteUser (@RequestBody UserDto user){
+        public int deleteUser (@RequestBody UserDto user){
         return this.userService.deleteUser(user);
     }
 
     @PostMapping (value = "/addFriend")
-    public int addUser (@RequestBody UserDto friend){ return this.userService.addFriend(friend);}
+        public int addUser (@RequestBody UserDto friend){ return this.userService.addFriend(friend);}
 
     @DeleteMapping (value = "/deleteFriend")
-    public int removeFriend (@RequestBody UserDto friend){
+        public int removeFriend (@RequestBody UserDto friend){
         return this.userService.removeFriend(friend);
+    }
+
+    @GetMapping (value = "/viewFriends")
+        public List<UserDto> listFriends(@RequestParam UserDto userId) {
+            return this.userService.listFriends(userId);
     }
 }
