@@ -47,4 +47,9 @@ public class PostController {
         return this.postService.deletePost(post);
     }
 
+    @PostMapping (value = "/textPost")
+    public PostDto createTextPost(@RequestBody PostDto postDto){
+        return this.postService.createTextPost(postDto);
+    }
+
 }

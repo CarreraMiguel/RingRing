@@ -10,4 +10,5 @@ public interface IPostService {
     int insertPost (PostDto postDto);
     int updatePost (PostDto postDto);
     int deletePost(PostDto postDto);
+    PostDto createTextPost(PostDto postDto);
 }
