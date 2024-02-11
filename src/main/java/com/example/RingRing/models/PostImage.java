@@ -11,6 +11,14 @@ public class PostImage extends Post{
     @Column
     private String dimension;
 
+    public PostImage(String title, String body, String dimension) {
+        super(title, body);
+        this.dimension = dimension;
+    }
+
+    public PostImage() {
+    }
+
     public String getDimension() {
         return dimension;
     }
