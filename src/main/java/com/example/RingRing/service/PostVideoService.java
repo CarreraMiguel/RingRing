@@ -12,8 +12,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 @Service
 public class PostVideoService implements IPostVideoService {
-    @Autowired
-    private PostVideoDao postVideoDao;
+
+    private final PostVideoDao postVideoDao;
+    public PostVideoService(PostVideoDao postVideoDao) {
+        this.postVideoDao = postVideoDao;
+    }
 
     @Override
     public List<PostVideoDto> queryAllPostVideos(){

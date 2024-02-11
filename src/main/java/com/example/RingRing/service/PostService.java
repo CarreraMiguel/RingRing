@@ -13,8 +13,10 @@ import java.util.Scanner;
 
 @Service
 public class PostService implements IPostService {
-    @Autowired
-    private PostDao postDao;
+    private final PostDao postDao;
+    public PostService(PostDao postDao) {
+        this.postDao = postDao;
+    }
 
     @Override
     public List<PostDto> queryAllPosts(){

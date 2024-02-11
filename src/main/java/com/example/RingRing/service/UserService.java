@@ -13,8 +13,10 @@ import java.util.Optional;
 
 @Service
 public class UserService implements IUserService {
-    @Autowired
-     private UserDao userDao;
+    private final UserDao userDao;
+    public UserService(UserDao userDao) {
+        this.userDao = userDao;
+    }
 
     @Override
     public UserDto queryUser(UserDto userDto){
