@@ -1,5 +1,6 @@
 package com.example.RingRing.api;
 
+import com.example.RingRing.models.dto.PostDto;
 import com.example.RingRing.models.dto.PostVideoDto;
 
 import java.util.List;
@@ -10,4 +11,5 @@ public interface IPostVideoService {
     int insertPostVideo (PostVideoDto postVideoDto);
     int updatePostVideo (PostVideoDto postVideoDto);
     int deletePostVideo(PostVideoDto postVideoDto);
+    PostVideoDto createPostVideo(PostVideoDto postVideoDto, PostDto postDto);
 }
