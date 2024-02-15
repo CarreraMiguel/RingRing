@@ -1,15 +1,22 @@
 package com.example.RingRing.service;
 
 import com.example.RingRing.api.IPostVideoService;
+import com.example.RingRing.models.Post;
+import com.example.RingRing.models.PostImage;
 import com.example.RingRing.models.PostVideo;
 import com.example.RingRing.models.dao.PostVideoDao;
+import com.example.RingRing.models.dto.PostDto;
 import com.example.RingRing.models.dto.PostVideoDto;
+import com.example.RingRing.models.dto.mappers.PostImageMapper;
+import com.example.RingRing.models.dto.mappers.PostMapper;
 import com.example.RingRing.models.dto.mappers.PostVideoMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Scanner;
+
 @Service
 public class PostVideoService implements IPostVideoService {
 
@@ -47,5 +54,53 @@ public class PostVideoService implements IPostVideoService {
         PostVideo postVideo = PostVideoMapper.INSTANCE.toEntity(postVideoDto);
         this.postVideoDao.delete(postVideo);
         return postVideo.getId();
+    }
+
+    @Override
+    public PostVideoDto createPostVideo(PostVideoDto postVideoDto, PostDto postDto){
+        PostVideo postVideo = PostVideoMapper.INSTANCE.toEntity(postVideoDto);
+        Post post = PostMapper.INSTANCE.toEntity(postDto);
+        Scanner leer = new Scanner(System.in);
+        while(true){
+            System.out.println("Título: ");
+            String title = leer.nextLine();
+            if(title != null && !title.isEmpty() && title.matches("^[a-zA-Z0-9 ]+$")){
+                post.setTitle(title);
+                break;
+            } else {
+                System.out.println("Introduzca un título válido.");
+            }
+        } System.out.println("------------------------------");
+        while(true){
+            System.out.println("Contenido del Post:");
+            String body = leer.nextLine();
+            if(body != null && !body.isEmpty() && body.matches("^[a-zA-Z0-9 ]+$")){
+                post.setBody(body);
+                break;
+            } else {
+                System.out.println("Recuerda escribir correctamente tu Post!");
+            }
+        }
+        while (true) {
+            System.out.println("Calidades de video posibles: 480, 720, 1080");
+            int quality = leer.nextInt();
+            if (quality == 480 || quality == 720 || quality == 1080) {
+                postVideoDto.setQuality(quality);
+                break;
+            } else {
+                System.out.println("Introduzca una de las calidades mencionadas con anterioridad.");
+            }
+        }
+        while(true){
+            System.out.println("Duración del video:");
+            String duration = leer.nextLine();
+            if(duration != null && !duration.isEmpty()){
+                postVideoDto.setDuration(duration);
+                break;
+            }else {
+                System.out.println("No te olvides de definir una duración para tu video!!");
+            }
+        }
+        return PostVideoMapper.INSTANCE.toDTO(postVideo);
     }
 }
