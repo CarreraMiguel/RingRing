@@ -1,13 +1,16 @@
 package com.example.RingRing.service;
 
 import com.example.RingRing.api.IUserService;
+import com.example.RingRing.models.Post;
 import com.example.RingRing.models.User;
 import com.example.RingRing.models.dao.UserDao;
+import com.example.RingRing.models.dto.PostDto;
 import com.example.RingRing.models.dto.UserDto;
+import com.example.RingRing.models.dto.mappers.PostMapper;
 import com.example.RingRing.models.dto.mappers.UserMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -74,11 +77,34 @@ public class UserService implements IUserService {
     public List<UserDto> listFriends(UserDto userDto) {
         User user = UserMapper.INSTANCE.toEntity(userDto);
 
-        for (int i = 0; i < user.getFriendList().size(); i++) {
-            User friend = user.getFriendList().get(i);
-            System.out.println((i + 1) + "Nombre del amigo: " + friend.getName() + "id: " + friend.getId());
+        List<UserDto> listOfFriends = new ArrayList<>();
+
+        if(user.getFriendList().isEmpty()){
+            throw new RuntimeException("Todavía no tienes ningún amigo");
+        } else {
+            for(User friends : user.getFriendList()){
+                System.out.println("Nombre: " + friends.getName() + " Id: " + friends.getId());
+                UserDto friendDto = UserMapper.INSTANCE.toDTO(friends);
+                listOfFriends.add(friendDto);
+            }
         }
-        return null;
+        return listOfFriends;
+    }
+
+    @Override
+    public List<PostDto> listPosts(UserDto userDto){
+        User user = UserMapper.INSTANCE.toEntity(userDto);
+
+        List<PostDto> postDtos = new ArrayList<>();
+        if(user.getPosts().isEmpty()){
+            throw new RuntimeException("Este usuario todavía no ha creado ningún Post");
+        } else {
+            for(Post post : user.getPosts()){
+                PostDto postDto = PostMapper.INSTANCE.toDTO(post);
+                postDtos.add(postDto);
+            }
+        }
+        return postDtos;
     }
 
 }
