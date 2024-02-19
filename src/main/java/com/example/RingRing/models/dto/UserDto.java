@@ -1,8 +1,6 @@
 package com.example.RingRing.models.dto;
 
-import com.example.RingRing.models.Commentary;
-import com.example.RingRing.models.Post;
-import com.example.RingRing.models.User;
+import com.example.RingRing.models.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +12,9 @@ public class UserDto {
 
     private String surname;
 
-    private List<Post> posts;
+    private List<Post> posts = new ArrayList<>();;
+    private List<PostImage> postImages = new ArrayList<>();;
+    private List<PostVideo> postVideos = new ArrayList<>();;
     private List<User> friendList = new ArrayList<>();
     private List<Commentary> commentary;
 
@@ -48,6 +48,22 @@ public class UserDto {
 
     public void setPosts(List<Post> posts) {
         this.posts = posts;
+    }
+
+    public List<PostImage> getPostImages() {
+        return postImages;
+    }
+
+    public void setPostImages(List<PostImage> postImages) {
+        this.postImages = postImages;
+    }
+
+    public List<PostVideo> getPostVideos() {
+        return postVideos;
+    }
+
+    public void setPostVideos(List<PostVideo> postVideos) {
+        this.postVideos = postVideos;
     }
 
     public List<User> getFriendList() {
