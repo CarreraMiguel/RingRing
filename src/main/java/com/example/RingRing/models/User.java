@@ -22,6 +22,12 @@ public class User {
     private List<Post> posts = new ArrayList<>();
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<PostImage> postImages = new ArrayList<>();
+
+    @OneToMany (mappedBy = "user", cascade = CascadeType.ALL)
+    private List<PostVideo> postVideos = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Commentary> commentary = new ArrayList<>();
     @OneToMany
     public List<Commentary> getCommentary() {
@@ -62,6 +68,23 @@ public class User {
     public void setPosts(List<Post> posts) {
         this.posts = posts;
     }
+
+    public List<PostImage> getPostImages() {
+        return postImages;
+    }
+
+    public void setPostImages(List<PostImage> postImages) {
+        this.postImages = postImages;
+    }
+
+    public List<PostVideo> getPostVideos() {
+        return postVideos;
+    }
+
+    public void setPostVideos(List<PostVideo> postVideos) {
+        this.postVideos = postVideos;
+    }
+
     public List<User> getFriendList() {
         return friendList;
     }
