@@ -19,10 +19,10 @@ public class User {
     private List<User> friendList = new ArrayList<>();
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<Post> posts;
+    private List<Post> posts = new ArrayList<>();
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<Commentary> commentary;
+    private List<Commentary> commentary = new ArrayList<>();
     @OneToMany
     public List<Commentary> getCommentary() {
         return commentary;
