@@ -5,6 +5,8 @@ import com.example.RingRing.models.Post;
 import com.example.RingRing.models.dao.PostDao;
 import com.example.RingRing.models.dto.PostDto;
 import com.example.RingRing.models.dto.mappers.PostMapper;
+import com.fasterxml.jackson.databind.util.JSONPObject;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -52,11 +54,13 @@ public class PostService implements IPostService {
     @Override
     public PostDto createTextPost(PostDto postDto){
         Post post = PostMapper.INSTANCE.toEntity(postDto);
+        JSONObject jsonObject = new JSONObject();
         Scanner leer = new Scanner(System.in);
         while(true){
             System.out.println("Título: ");
             String title = leer.nextLine();
             if(title != null && !title.isEmpty() && title.matches("^[a-zA-Z0-9 ]+$")){
+                jsonObject.put("title", title);
                 post.setTitle(title);
                 break;
             } else {
@@ -67,6 +71,7 @@ public class PostService implements IPostService {
             System.out.println("Contenido del Post:");
             String body = leer.nextLine();
             if(body != null && !body.isEmpty() && body.matches("^[a-zA-Z0-9 ]+$")){
+                jsonObject.put("body", body);
                 post.setBody(body);
                 break;
             } else {
