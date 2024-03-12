@@ -2,11 +2,17 @@ package com.example.RingRing.service;
 
 import com.example.RingRing.api.IUserService;
 import com.example.RingRing.models.Post;
+import com.example.RingRing.models.PostImage;
+import com.example.RingRing.models.PostVideo;
 import com.example.RingRing.models.User;
 import com.example.RingRing.models.dao.UserDao;
 import com.example.RingRing.models.dto.PostDto;
+import com.example.RingRing.models.dto.PostImageDto;
+import com.example.RingRing.models.dto.PostVideoDto;
 import com.example.RingRing.models.dto.UserDto;
+import com.example.RingRing.models.dto.mappers.PostImageMapper;
 import com.example.RingRing.models.dto.mappers.PostMapper;
+import com.example.RingRing.models.dto.mappers.PostVideoMapper;
 import com.example.RingRing.models.dto.mappers.UserMapper;
 import org.springframework.stereotype.Service;
 
@@ -106,5 +112,38 @@ public class UserService implements IUserService {
         }
         return postDtos;
     }
+
+    @Override
+    public List<PostImageDto> listPostImages(UserDto userDto){
+        User user = UserMapper.INSTANCE.toEntity(userDto);
+
+        List<PostImageDto> postImageDtos = new ArrayList<>();
+        if(user.getPostImages().isEmpty()){
+            throw new RuntimeException("Este usuario todavía no ha creado ningun Post con imagen");
+        } else {
+            for(PostImage postImage : user.getPostImages()){
+                PostImageDto postImageDto = PostImageMapper.INSTANCE.toDTO(postImage);
+                postImageDtos.add(postImageDto);
+            }
+        }
+        return postImageDtos;
+    }
+
+    @Override
+    public List<PostVideoDto> listPostVideos(UserDto userDto){
+        User user = UserMapper.INSTANCE.toEntity(userDto);
+
+        List<PostVideoDto> postVideoDtos = new ArrayList<>();
+        if(user.getPostVideos().isEmpty()){
+            throw new RuntimeException("Este usuario no ha creado ningun Post de Video");
+        } else {
+            for(PostVideo postVideo : user.getPostVideos()){
+                PostVideoDto postVideoDto = PostVideoMapper.INSTANCE.toDTO(postVideo);
+                postVideoDtos.add(postVideoDto);
+            }
+        }
+        return postVideoDtos;
+    }
+
 
 }
