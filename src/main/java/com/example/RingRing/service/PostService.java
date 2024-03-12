@@ -5,9 +5,6 @@ import com.example.RingRing.models.Post;
 import com.example.RingRing.models.dao.PostDao;
 import com.example.RingRing.models.dto.PostDto;
 import com.example.RingRing.models.dto.mappers.PostMapper;
-import com.fasterxml.jackson.databind.util.JSONPObject;
-import org.json.JSONObject;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
