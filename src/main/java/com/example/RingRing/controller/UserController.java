@@ -1,6 +1,9 @@
 package com.example.RingRing.controller;
 
 import com.example.RingRing.api.IUserService;
+import com.example.RingRing.models.dto.PostDto;
+import com.example.RingRing.models.dto.PostImageDto;
+import com.example.RingRing.models.dto.PostVideoDto;
 import com.example.RingRing.models.dto.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -58,5 +61,18 @@ public class UserController {
     @GetMapping (value = "/viewFriends")
         public List<UserDto> listFriends(@RequestParam UserDto userId) {
             return this.userService.listFriends(userId);
+    }
+
+    @GetMapping (value = "/getAllPosts")
+    public List<PostDto> listPosts(@RequestBody UserDto user){
+        return this.userService.listPosts(user);
+    }
+    @GetMapping (value = "/getAllVideos")
+    public List<PostVideoDto> listPostVideos(@RequestBody UserDto user){
+        return this.userService.listPostVideos(user);
+    }
+    @GetMapping (value = "/getAllImages")
+    public List<PostImageDto> listPostImages(@RequestBody UserDto user){
+        return this.userService.listPostImages(user);
     }
 }
