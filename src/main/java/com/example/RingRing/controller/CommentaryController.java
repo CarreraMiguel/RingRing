@@ -46,4 +46,9 @@ public class CommentaryController {
     public int deleteCommentary(@RequestBody CommentaryDto commentary){
         return this.commentaryService.deleteCommentary(commentary);
     }
+
+    @PostMapping (value = "/create")
+    public CommentaryDto createCommentary(@RequestBody CommentaryDto commentary){
+        return this.commentaryService.createCommentary(commentary);
+    }
 }
