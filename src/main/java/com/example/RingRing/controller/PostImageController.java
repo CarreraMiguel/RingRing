@@ -1,6 +1,7 @@
 package com.example.RingRing.controller;
 
 import com.example.RingRing.api.IPostImageService;
+import com.example.RingRing.models.dto.PostDto;
 import com.example.RingRing.models.dto.PostImageDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -43,5 +44,10 @@ public class PostImageController {
     @DeleteMapping (value = "/delete")
     public int deletePostImage(@RequestBody PostImageDto postImage){
         return this.postImageService.deletePostImage(postImage);
+    }
+
+    @PostMapping (value = "/create")
+    public PostImageDto createPostImage(@RequestBody PostImageDto postImage, PostDto post){
+        return this.postImageService.createPostImage(postImage, post);
     }
 }
