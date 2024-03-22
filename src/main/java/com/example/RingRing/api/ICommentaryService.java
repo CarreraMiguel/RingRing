@@ -10,4 +10,5 @@ public interface ICommentaryService {
     int insertCommentary (CommentaryDto commentaryDto);
     int updateCommentary (CommentaryDto commentaryDto);
     int deleteCommentary(CommentaryDto commentaryDto);
+    CommentaryDto createCommentary(CommentaryDto commentaryDto);
 }
